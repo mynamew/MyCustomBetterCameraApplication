@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:orientation="vertical"
+        android:visibility="gone"/>
+    <FrameLayout
+        android:layout_below="@id/rl_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.example.huanbei_dev4.mycustombettercameraapplication.camera.CameraView
+            android:id="@+id/camera"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rlv_img"
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="160dp"
+            android:alpha="0.8"
+            android:background="#000"
+            android:visibility="gone" />
+        <ImageView
+            android:id="@+id/iv_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_take_picture_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_alignParentBottom="true"
+        android:background="#000"
+
+        android:padding="10dp"
+        android:visibility="visible">
+        <!-- 拍照按钮 -->
+        <ImageView
+            android:id="@+id/takepicture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="48dp"
+            android:onClick="takePicClick"
+            android:rotation="90"
+            android:src="@drawable/take_picture" />
+
+        <TextView
+            android:id="@+id/tv_cancel_take_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/takepicture"
+            android:onClick="takePicClick"
+            android:padding="20dp"
+            android:text="取消"
+            android:textColor="#fff"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tv_finish_take_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/takepicture"
+            android:layout_alignParentRight="true"
+            android:onClick="takePicClick"
+            android:padding="20dp"
+            android:text="完成"
+            android:textColor="#fff"
+            android:textSize="14dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_choose_picture"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:background="#000"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="takePicClick"
+            android:padding="50dp"
+            android:src="@mipmap/qhb_take_picture_cancel" />
+
+        <ImageView
+            android:id="@+id/iv_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="takePicClick"
+            android:padding="50dp"
+            android:src="@mipmap/qhb_take_picture_confirm" />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rl_take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:layout_below="@id/rl_bar"
+        android:alpha="0.8"
+        android:background="#000">
+
+        <ImageView
+            android:id="@+id/iv_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:onClick="takePicClick"
+            android:paddingLeft="9dp"
+            android:src="@mipmap/qhb_take_picture_auto" />
+
+        <TextView
+            android:id="@+id/tv_auto"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/iv_auto"
+            android:gravity="center_vertical"
+            android:onClick="takePicClick"
+            android:text="关闭"
+            android:textColor="#fff" />
+
+        <ImageView
+            android:id="@+id/iv_rotation_camera"
+            android:layout_width="35dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:onClick="takePicClick"
+            android:paddingRight="9dp"
+            android:src="@mipmap/qhb_take_picture_rotation_camera" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_take_staus"
+        android:layout_width="match_parent"
+        android:layout_height="63dp"
+        android:alpha="0.8"
+        android:background="#000"
+        android:layout_below="@id/rl_bar"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:onClick="takePicClick"
+            android:paddingLeft="9dp"
+            android:src="@mipmap/qhb_take_picture_back" />
+
+        <TextView
+            android:id="@+id/tv_confirm_img_title"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:gravity="center_vertical"
+            android:text="1/4"
+            android:textColor="#fff" />
+    </RelativeLayout>
+</RelativeLayout>
